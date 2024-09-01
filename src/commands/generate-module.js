@@ -2,44 +2,34 @@ const command = {
   name: 'generate:module',
   description: 'Generate a new module in src/modules folder',
   run: async (toolbox) => {
-    const { print, parameters, template, filesystem } = toolbox
+    const { print, parameters, createFiles } = toolbox
+
+    const flags = parameters.options
+
+    const name = parameters.first
 
     const basePath = 'src/modules'
 
-    if (!parameters.first) {
+    if (!name) {
       print.error('Please provide a module name')
       return
     }
 
-    if (filesystem.exists(`src/modules/${parameters.first}`)) {
-      print.error('Module already exists')
+    if (!flags.nested) {
+      await createFiles(basePath, name)
+
       return
     }
 
-    filesystem.dir(`${basePath}/${parameters.first}/controllers`)
-    filesystem.dir(`${basePath}/${parameters.first}/views`)
-    filesystem.dir(`${basePath}/${parameters.first}/hooks`)
-    filesystem.dir(`${basePath}/${parameters.first}/utils`)
-    filesystem.dir(`${basePath}/${parameters.first}/components`)
-    filesystem.dir(`${basePath}/${parameters.first}/contexts`)
+    const { path } = await toolbox.prompt.ask([
+      {
+        type: 'input',
+        name: 'path',
+        message: 'Enter the module path to be created:',
+      },
+    ])
 
-    await template.generate({
-      template: 'contexts.tsx.ejs',
-      target: `${basePath}/${parameters.first}/contexts/${parameters.first}Context.tsx`,
-      props: { name: parameters.first },
-    })
-
-    await template.generate({
-      template: 'controllers.tsx.ejs',
-      target: `${basePath}/${parameters.first}/controllers/${parameters.first}Controller.tsx`,
-      props: { name: parameters.first },
-    })
-
-    await template.generate({
-      template: 'hooks.ts.ejs',
-      target: `${basePath}/${parameters.first}/hooks/${parameters.first}Hook.tsx`,
-      props: { name: parameters.first },
-    })
+    await createFiles(`${basePath}/${path}`, name)
   },
 }
 

@@ -6,6 +6,6 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  extends: ['prettier', 'plugin:prettier/recommended'],
+  // extends: ['prettier', 'plugin:prettier/recommended'],
   rules: {},
 }
