@@ -1,23 +1,18 @@
-import React, { useContext, createContext } from 'react';
+import React, { useContext, createContext } from 'react'
 
-interface <%props.name%>ContextValues {}
+interface <%= props.name %>ContextValues {}
 
-const <%props.name%>Context = createContext<<%props.name%>ContextValues>({} as <%props.name%>ContextValues)
+const <%= props.name %>Context = createContext<<%= props.name %>ContextValues>({} as <%= props.name %>ContextValues)
 
-interface <%props.name%>ProviderProps {
-   children: React.ReactNode;
+interface <%= props.name %>ProviderProps {
+  children: React.ReactNode
 }
 
-export const <%props.name%>Provider:React.FC<<%props.name%>ProviderProps> = ({ children }) => {
+export const <%= props.name %>Provider: React.FC<<%= props.name %>ProviderProps> = ({ children }) => {
+  return <<%= props.name %>Context.Provider value={{}}>{children}</<%= props.name %>Context.Provider>
+}
 
-  return (
-<<%props.name%>Context.Provider value={{}}>
-   {children}
-   </<%props.name%>Context.Provider>
-   );
-};
-
-export const use<%props.name%>Context = () => {
-   const context = useContext(<%props.name%>Context);
-   return context;
-};
+export const use<%= props.name %>Context = () => {
+  const context = useContext(<%= props.name %>Context)
+  return context
+}

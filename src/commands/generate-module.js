@@ -23,9 +23,23 @@ const command = {
     filesystem.dir(`${basePath}/${parameters.first}/components`)
     filesystem.dir(`${basePath}/${parameters.first}/contexts`)
 
-    // await template.generate({
-    //   template: '',
-    // })
+    await template.generate({
+      template: 'contexts.tsx.ejs',
+      target: `${basePath}/${parameters.first}/contexts/${parameters.first}Context.tsx`,
+      props: { name: parameters.first },
+    })
+
+    await template.generate({
+      template: 'controllers.tsx.ejs',
+      target: `${basePath}/${parameters.first}/controllers/${parameters.first}Controller.tsx`,
+      props: { name: parameters.first },
+    })
+
+    await template.generate({
+      template: 'hooks.ts.ejs',
+      target: `${basePath}/${parameters.first}/hooks/${parameters.first}Hook.tsx`,
+      props: { name: parameters.first },
+    })
   },
 }
 
