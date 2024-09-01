@@ -1,9 +1,9 @@
 {
-  "name": "aergia",
+  "name": "lagoon-cli",
   "version": "0.0.1",
-  "description": "aergia CLI",
+  "description": "lagoon CLI",
   "bin": {
-    "aergia": "bin/aergia"
+    "lagoon": "bin/lagoon"
   },
   "scripts": {
     "format": "eslint \"**/*.{js,jsx}\" --fix && prettier \"**/*.{js,jsx,json}\" --write",
