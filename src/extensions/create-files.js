@@ -1,5 +1,5 @@
 module.exports = async (toolbox) => {
-  const { template, filesystem } = toolbox
+  const { template, filesystem, print } = toolbox
 
   const createFiles = async (basePath, name) => {
     if (filesystem.exists(`${basePath}/${name}`)) {
@@ -28,6 +28,8 @@ module.exports = async (toolbox) => {
       target: `${basePath}/${name}/hooks/${name}Hook.tsx`,
       props: { name },
     })
+
+    print.success(`Module ${name} created successfully`)
   }
 
   toolbox.createFiles = createFiles
