@@ -1,23 +1,8 @@
-# Aergia CLI
+# Aergia
 
-A CLI for Aergia.
+This is an automated script to create modules (components, pages, hooks, etc.) in a React Native project. The goal is to speed up development by standardizing the creation of files and directories, following a predefined structure.
 
-## Customizing your CLI
+## Features
 
-Check out the documentation at https://github.com/infinitered/gluegun/tree/master/docs.
-
-## Publishing to NPM
-
-To package your CLI up for NPM, do this:
-
-```shell
-$ npm login
-$ npm whoami
-$ npm test
-
-$ npm publish
-```
-
-# License
-
-MIT - see LICENSE
+- Creation of directories for specific modules (components, pages, hooks, etc.).
+- Generation of files with standard templates.

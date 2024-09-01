@@ -2,7 +2,6 @@
   "name": "aergia",
   "version": "0.0.1",
   "description": "aergia CLI",
-  "private": true,
   "bin": {
     "aergia": "bin/aergia"
   },
