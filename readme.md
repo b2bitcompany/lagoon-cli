@@ -1,6 +1,6 @@
-# aergia CLI
+# Aergia CLI
 
-A CLI for aergia.
+A CLI for Aergia.
 
 ## Customizing your CLI
 
@@ -21,4 +21,3 @@ $ npm publish
 # License
 
 MIT - see LICENSE
-

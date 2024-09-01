@@ -1,6 +1,7 @@
 const command = {
   name: 'generate:module',
   description: 'Generate a new module in src/modules folder',
+  alias: ['gm'],
   run: async (toolbox) => {
     const { print, parameters, createFiles } = toolbox
 
