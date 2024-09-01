@@ -1,0 +1,14 @@
+import React from 'react';
+  
+  interface <%props.name%>ControllerChildrenProps {}
+  
+  type <%props.name%>ControllerProps =
+    ChildrenController<<%props.name%>ControllerChildrenProps>;
+  
+  const <%props.name%>Controller: React.FC<<%props.name%>ControllerProps> = ({
+    children,
+  }) => {
+    return children({});
+  };
+  
+  export default <%props.name%>Controller;
